@@ -249,6 +249,7 @@ section { padding: 7rem 4rem; }
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
+.project-card:only-child { grid-column: 1 / -1; }
 .project-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -446,7 +447,53 @@ footer span { color: var(--accent); }
 }
 
 /* ─── RESPONSIVE ─── */
+/* Featured project with screenshot */
+.project-card--featured {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  padding: 2.8rem;
+}
+.project-card--featured .project-name { font-size: 2rem; }
+.project-media {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.project-media::before {
+  content: '';
+  position: absolute;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,240,107,0.18), transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.phone {
+  position: relative;
+  width: 220px;
+  padding: 10px;
+  background: #0a0a0c;
+  border: 1px solid var(--border);
+  border-radius: 34px;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.03) inset;
+  transform: rotate(3deg);
+  transition: transform 0.4s;
+}
+.project-card--featured:hover .phone { transform: rotate(0deg) translateY(-4px); }
+.phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 26px;
+}
+
 @media (max-width: 768px) {
+  .project-card--featured { grid-template-columns: 1fr; gap: 2.5rem; padding: 2rem; }
+  .project-card--featured .project-media { order: -1; }
+  .phone { width: 190px; transform: none; }
   nav { padding: 1.2rem 1.5rem; }
   .nav-links { display: none; }
   section { padding: 5rem 1.5rem; }
