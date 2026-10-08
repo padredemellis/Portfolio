@@ -4,228 +4,213 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Emanuel Romero — Desarrollador de Software</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+<meta name="description" content="Emanuel Romero, desarrollador de software Back-End y Mobile en Canelones, Uruguay." />
+<meta name="theme-color" content="#0a0807" />
+<link rel="icon" type="image/png" href="img/favicon.png" />
+<link rel="preload" href="fonts/press-start-2p.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/vt323.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-logo">Emanuel Romero</div> <!-- Poner dominio ER.dev -->
-  <ul class="nav-links">
-    <li><a href="#about">Sobre mí</a></li>
-    <li><a href="#projects">Proyectos</a></li>
-    <li><a href="#experience">Experiencia</a></li>
-    <li><a href="#education">Formación</a></li>
-    <li><a href="#contact">Contacto</a></li>
-  </ul>
-</nav>
+<canvas id="pixels" aria-hidden="true"></canvas>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-inner">
-    <p class="hero-label">Desarrollador · Back-End &amp; Mobile</p>
-    <h1 class="hero-name">Emanuel<br><em>Romero</em></h1>
-    <p class="hero-sub">Programo para solucionar problemas y enseño para potenciar personas.</p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn btn-primary">Ver proyectos</a>
-      <a href="#contact" class="btn btn-outline">Contacto</a>
+<!-- HUD / NAV -->
+<header id="hud">
+  <a href="#start" class="hud-player"><span class="blink-dot"></span>P1 · EMANUEL</a>
+  <button class="hud-menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">MENU</button>
+  <nav id="menu">
+    <a href="#about">Stats</a>
+    <a href="#inventory">Inventario</a>
+    <a href="#quests">Misiones</a>
+    <a href="#levels">Niveles</a>
+    <a href="#contact">Continue?</a>
+  </nav>
+  <div class="hud-hearts" aria-label="3 vidas"><i></i><i></i><i></i></div>
+</header>
+
+<main>
+
+<!-- HERO / START SCREEN -->
+<section id="start">
+  <div class="start-inner">
+    <div class="avatar-frame px-box">
+      <img src="img/avatar.png" alt="Avatar pixel art de Emanuel Romero" class="avatar" width="256" height="256" />
+      <div class="avatar-tag">LV.99</div>
     </div>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    scroll
+
+    <div class="start-text">
+      <p class="eyebrow">&gt; JUGADOR 1 SELECCIONADO</p>
+      <h1 class="title"><span>EMANUEL</span><span class="accent">ROMERO</span></h1>
+
+      <dl class="char-sheet">
+        <div><dt>CLASE</dt><dd>Desarrollador</dd></div>
+        <div><dt>RAMA</dt><dd>Back-End &amp; Mobile</dd></div>
+        <div><dt>BASE</dt><dd>Canelones, UY</dd></div>
+      </dl>
+
+      <div class="dialog px-box">
+        <p id="typed" data-text="Programo para solucionar problemas y enseño para potenciar personas.">Programo para solucionar problemas y enseño para potenciar personas.</p>
+        <span class="dialog-next" aria-hidden="true">▼</span>
+      </div>
+
+      <div class="ctas">
+        <a href="#about" class="btn8 btn8--primary">▶ PRESS START</a>
+        <a href="#quests" class="btn8">VER MISIONES</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
+<!-- ABOUT / STATS -->
+<section id="about" class="screen">
   <div class="container">
-    <div class="section-label">01 — Sobre mí</div>
-    <h2 class="section-title reveal">Lógica computacional<br>con conexión humana.</h2>
+    <h2 class="sec-title"><span class="sec-num">01</span>STATS DEL PERSONAJE</h2>
+
     <div class="about-grid">
-      <div class="about-text reveal">
-        <p>Desarrollador de software con enfoque en <strong>back-end y desarrollo móvil</strong>. Combino formación técnica en Holberton School con experiencia docente y trabajo en contextos de impacto social.</p>
-        <p>Eso me da <strong>capacidad para comunicar lo técnico en términos humanos</strong>, trabajar en equipos multidisciplinarios y resolver problemas en entornos complejos.</p>
-        <div style="margin-top:1.5rem; display:flex; gap:1.5rem; flex-wrap:wrap;">
-          <div>
-            <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);margin-bottom:0.3rem;">IDIOMAS</div>
-            <div style="font-size:0.9rem;">🇪🇸 Español nativo &nbsp;·&nbsp; 🇬🇧 Inglés B1</div>
-          </div>
-          <div>
-            <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);margin-bottom:0.3rem;">UBICACIÓN</div>
-            <div style="font-size:0.9rem;">📍 Canelones, Uruguay</div>
-          </div>
-        </div>
+      <div class="dialog px-box reveal">
+        <p class="dialog-name">EMANUEL:</p>
+        <p>Soy desarrollador de software con enfoque en <strong>back-end y desarrollo móvil</strong>. Combino la formación técnica de Holberton School con experiencia docente y trabajo en contextos de impacto social.</p>
+        <p>Eso me da un poder especial: <strong>explicar lo técnico en términos humanos</strong>, trabajar en equipos multidisciplinarios y resolver problemas en entornos complejos.</p>
       </div>
-      <div class="reveal">
-        <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Stack técnico</div>
-        <div class="stack-grid">
-          <div class="stack-chip"><div class="chip-dot"></div>Python</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Flask</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Dart</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Flutter</div>
-          <div class="stack-chip"><div class="chip-dot"></div>JavaScript</div>
-          <div class="stack-chip"><div class="chip-dot"></div>React.js</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Firebase</div>
-          <div class="stack-chip"><div class="chip-dot"></div>MySQL</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Docker</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Git / GitHub</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Linux</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Bash</div>
-          <div class="stack-chip"><div class="chip-dot"></div>C</div>
-          <div class="stack-chip"><div class="chip-dot"></div>SQL</div>
-          <div class="stack-chip"><div class="chip-dot"></div>API REST</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Microservicios</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Clean Architecture</div>
-          <div class="stack-chip"><div class="chip-dot"></div>Scrum</div>
-        </div>
+
+      <div class="stats px-box reveal">
+        <p class="panel-label">IDIOMAS</p>
+        <div class="bar-row"><span>ESPAÑOL</span><div class="bar"><i style="--v:100%"></i></div><b>NATIVO</b></div>
+        <div class="bar-row"><span>INGLÉS</span><div class="bar"><i style="--v:50%"></i></div><b>B1</b></div>
+
+        <p class="panel-label" style="margin-top:1.6rem">HABILIDADES ESPECIALES</p>
+        <ul class="perks">
+          <li>★ Resolución de problemas</li>
+          <li>★ Comunicación técnica</li>
+          <li>★ Trabajo en equipo</li>
+          <li>★ Didáctica &amp; Mentoría</li>
+          <li>★ Pensamiento crítico</li>
+          <li>★ Adaptabilidad</li>
+          <li>★ Gestión de proyectos</li>
+          <li>★ Inteligencia emocional</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
+<!-- INVENTORY / STACK -->
+<section id="inventory" class="screen">
   <div class="container">
-    <div class="section-label">02 — Proyectos</div>
-    <h2 class="section-title reveal">Lo que construí.</h2>
-    <div class="projects-grid">
-
-      <div class="project-card project-card--featured reveal">
-        <div class="project-body">
-        <div class="project-tag">2025 · App Móvil</div>
-        <div class="project-name">Beast Quiz</div>
-        <div class="project-desc">MVP de trivia móvil con Clean Architecture, gestión avanzada de estados y UX optimizada. Backend completo en Firebase con real-time database, cloud functions y autenticación con Google Auth. Documentación técnica integral: flujos de datos, diagramas de arquitectura y manuales de despliegue.</div>
-        <div class="project-tech">
-          <span class="tech-badge">Flutter</span>
-          <span class="tech-badge">Dart</span>
-          <span class="tech-badge">Firebase</span>
-          <span class="tech-badge">Clean Architecture</span>
-          <span class="tech-badge">Google Auth</span>
-        </div>
-        </div>
-        <div class="project-media">
-          <div class="phone">
-            <img src="img/beast-quiz.jpg" alt="Pantalla de selección de personaje de Beast Quiz" loading="lazy" width="720" height="1470" />
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <p class="reveal" style="margin-top:2rem;font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--muted);">
-      → Más proyectos en <a href="https://github.com/padredemellis" target="_blank" style="color:var(--accent);text-decoration:none;">GitHub</a>
-    </p>
+    <h2 class="sec-title"><span class="sec-num">02</span>INVENTARIO</h2>
+    <p class="sec-sub">Las herramientas que llevo en la mochila.</p>
+    <ul class="inv-grid reveal">
+      <li class="slot"><b>PY</b><span>Python</span></li>
+      <li class="slot"><b>FK</b><span>Flask</span></li>
+      <li class="slot"><b>DT</b><span>Dart</span></li>
+      <li class="slot"><b>FL</b><span>Flutter</span></li>
+      <li class="slot"><b>JS</b><span>JavaScript</span></li>
+      <li class="slot"><b>RE</b><span>React.js</span></li>
+      <li class="slot"><b>FB</b><span>Firebase</span></li>
+      <li class="slot"><b>MY</b><span>MySQL</span></li>
+      <li class="slot"><b>DK</b><span>Docker</span></li>
+      <li class="slot"><b>GT</b><span>Git / GitHub</span></li>
+      <li class="slot"><b>LX</b><span>Linux</span></li>
+      <li class="slot"><b>$_</b><span>Bash</span></li>
+      <li class="slot"><b>C</b><span>C</span></li>
+      <li class="slot"><b>SQ</b><span>SQL</span></li>
+      <li class="slot"><b>AP</b><span>API REST</span></li>
+      <li class="slot"><b>MS</b><span>Microservicios</span></li>
+      <li class="slot"><b>CA</b><span>Clean Arch.</span></li>
+      <li class="slot"><b>SC</b><span>Scrum</span></li>
+    </ul>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
+<!-- QUESTS / PROJECTS -->
+<section id="quests" class="screen">
   <div class="container">
-    <div class="section-label">03 — Experiencia</div>
-    <h2 class="section-title reveal">Recorrido.</h2>
-    <div class="timeline">
+    <h2 class="sec-title"><span class="sec-num">03</span>MISIONES COMPLETADAS</h2>
 
-      <div class="timeline-item reveal">
-        <div class="tl-year">2023 –<br>Presente</div>
-        <div class="tl-content">
-          <div class="tl-role">Docente de Informática</div>
-          <div class="tl-org">Educación Secundaria</div>
-          <div class="tl-desc">Diseño instruccional: adaptación de conceptos técnicos complejos para distintos niveles, facilitando la transferencia de conocimiento con metodologías innovadoras. Coordinación de equipos de aprendizaje y evaluación continua con mentoría individualizada.</div>
+    <article class="quest px-box reveal">
+      <div class="quest-body">
+        <p class="quest-badge">★ QUEST COMPLETE · 2025</p>
+        <h3 class="quest-name">BEAST QUIZ</h3>
+        <p class="quest-type">App móvil · Lead Mobile Developer</p>
+        <p>MVP de trivia móvil con <strong>Clean Architecture</strong>, gestión avanzada de estados y UX optimizada. Backend completo en <strong>Firebase</strong> con real-time database, cloud functions y autenticación con Google Auth. Documentación técnica integral: flujos de datos, diagramas de arquitectura y manuales de despliegue.</p>
+        <p class="panel-label">RECOMPENSAS</p>
+        <ul class="loot">
+          <li>Flutter</li><li>Dart</li><li>Firebase</li><li>Clean Architecture</li><li>Google Auth</li>
+        </ul>
+        <a href="https://github.com/padredemellis/trivia-mvp" target="_blank" rel="noopener" class="btn8 btn8--small">VER CODIGO ▶</a>
+      </div>
+      <div class="quest-media">
+        <div class="px-phone">
+          <img src="img/beast-quiz.jpg" alt="Pantalla de selección de personaje de Beast Quiz" loading="lazy" width="720" height="1470" />
         </div>
       </div>
+    </article>
 
-      <div class="timeline-item reveal">
-        <div class="tl-year">2019 –<br>2025</div>
-        <div class="tl-content">
-          <div class="tl-role">Educador Social</div>
-          <div class="tl-org">ONG Otras Manos</div>
-          <div class="tl-desc">Intervención en contextos de vulnerabilidad: planes centrados en el usuario, resolución de conflictos y trabajo en equipos multidisciplinarios con psicólogos y trabajadores sociales. Desarrollo de habilidades de comunicación, empatía y gestión de situaciones complejas.</div>
-        </div>
-      </div>
-
-    </div>
+    <p class="more reveal">&gt; Más misiones en <a href="https://github.com/padredemellis" target="_blank" rel="noopener">GitHub</a><span class="cursor">_</span></p>
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education">
+<!-- LEVELS / EXPERIENCE + EDUCATION -->
+<section id="levels" class="screen">
   <div class="container">
-    <div class="section-label">04 — Formación</div>
-    <h2 class="section-title reveal">Aprendizaje continuo.</h2>
-    <div class="edu-grid">
+    <h2 class="sec-title"><span class="sec-num">04</span>NIVELES SUPERADOS</h2>
 
-      <div class="edu-card reveal">
-        <div class="edu-period">2025 – 2026</div>
-        <div class="edu-degree">Software Engineering Foundations</div>
-        <div class="edu-institution">Holberton School</div>
-      </div>
+    <div class="world-map">
+      <article class="level px-box reveal">
+        <p class="level-tag">MUNDO 2 · 2023 – HOY</p>
+        <h3>Docente de Informática</h3>
+        <p class="level-org">Educación Secundaria</p>
+        <p>Adapto conceptos técnicos complejos a distintos niveles con metodologías innovadoras. Coordino equipos de aprendizaje, con evaluación continua y mentoría individual.</p>
+      </article>
 
-      <div class="edu-card reveal" style="transition-delay:0.1s">
-        <div class="edu-period">2023 – Presente</div>
-        <div class="edu-degree">Profesorado de Informática</div>
-        <div class="edu-institution">Instituto Normal de Enseñanza Técnica (INET)</div>
-      </div>
-
+      <article class="level px-box reveal">
+        <p class="level-tag">MUNDO 1 · 2019 – 2025</p>
+        <h3>Educador Social</h3>
+        <p class="level-org">ONG Otras Manos</p>
+        <p>Intervención en contextos de vulnerabilidad junto a psicólogos y trabajadores sociales: planes centrados en las personas, resolución de conflictos, comunicación y empatía.</p>
+      </article>
     </div>
 
-    <!-- Competencias -->
-    <div style="margin-top:3rem;">
-      <div class="section-label">Competencias clave</div>
-      <div class="stack-grid reveal" style="margin-top:1rem;">
-        <div class="stack-chip"><div class="chip-dot" style="background:var(--accent2)"></div>Resolución de problemas</div>
-        <div class="stack-chip"><div class="chip-dot" style="background:var(--accent2)"></div>Comunicación técnica</div>
-        <div class="stack-chip"><div class="chip-dot" style="background:var(--accent2)"></div>Trabajo en equipo</div>
-        <div class="stack-chip"><div class="chip-dot" style="background:var(--accent2)"></div>Pensamiento crítico</div>
-        <div class="stack-chip"><div class="chip-dot" style="background:var(--accent2)"></div>Didáctica &amp; Mentoría</div>
-        <div class="stack-chip"><div class="chip-dot" style="background:var(--accent2)"></div>Adaptabilidad</div>
-        <div class="stack-chip"><div class="chip-dot" style="background:var(--accent2)"></div>Gestión de proyectos</div>
-        <div class="stack-chip"><div class="chip-dot" style="background:var(--accent2)"></div>Iniciativa &amp; Proactividad</div>
-        <div class="stack-chip"><div class="chip-dot" style="background:var(--accent2)"></div>Inteligencia emocional</div>
+    <h3 class="sub-title reveal">ENTRENAMIENTO</h3>
+    <div class="training">
+      <div class="train px-box reveal">
+        <p class="level-tag">2025 – 2026</p>
+        <p class="train-name">Software Engineering Foundations</p>
+        <p class="level-org">Holberton School</p>
+      </div>
+      <div class="train px-box reveal">
+        <p class="level-tag">2023 – HOY</p>
+        <p class="train-name">Profesorado de Informática</p>
+        <p class="level-org">INET</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="section-label">05 — Contacto</div>
-    <h2 class="section-title reveal">Hablemos.</h2>
-    <div class="contact-inner">
-      <div class="reveal">
-        <div class="contact-info">
-          <p>¿Tenés un proyecto en mente, querés colaborar o simplemente charlar sobre código? Escribime.</p>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:emanuel.romero@docente.ceibal.edu.uy" class="contact-link">
-            <span class="contact-link-icon">@</span>
-            <span>emanuel.romero@docente.ceibal.edu.uy</span>
-          </a>
-          <a href="tel:+59894492239" class="contact-link">
-            <span class="contact-link-icon">☎</span>
-            <span>(094) 492-239</span>
-          </a>
-          <a href="https://linkedin.com/" target="_blank" class="contact-link">
-            <span class="contact-link-icon">in</span>
-            <span>LinkedIn</span>
-          </a>
-          <a href="https://github.com/padredemellis" target="_blank" class="contact-link">
-            <span class="contact-link-icon">&lt;/&gt;</span>
-            <span>GitHub</span>
-          </a>
-        </div>
-      </div>
+<!-- CONTACT / CONTINUE -->
+<section id="contact" class="screen">
+  <div class="container continue">
+    <h2 class="continue-title">CONTINUE?</h2>
+    <p class="countdown" id="countdown" aria-hidden="true">9</p>
+    <p class="continue-sub">¿Tenés un proyecto en mente, querés colaborar o simplemente charlar sobre código? Elegí una opción:</p>
+
+    <div class="contact-btns">
+      <a href="mailto:emanuel.romero@docente.ceibal.edu.uy" class="btn8 btn8--primary"><span class="key">A</span> EMAIL</a>
+      <a href="https://www.linkedin.com/in/luis-emanuel-romero-duarte" target="_blank" rel="noopener" class="btn8"><span class="key">B</span> LINKEDIN</a>
+      <a href="https://github.com/padredemellis" target="_blank" rel="noopener" class="btn8"><span class="key">X</span> GITHUB</a>
+      <a href="tel:+59894492239" class="btn8"><span class="key">Y</span> LLAMAR</a>
     </div>
+    <p class="contact-plain">emanuel.romero@docente.ceibal.edu.uy · (094) 492-239</p>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
-  <div>Emanuel Romero © <span id="year"></span></div>
-  <div>Canelones, <span>Uruguay</span></div>
+  <span>© <span id="year"></span> EMANUEL ROMERO</span>
+  <span class="insert-coin">INSERT COIN ●</span>
+  <span>CANELONES · URUGUAY</span>
 </footer>
 
 <script src="script.js"></script>
